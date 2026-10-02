@@ -16,6 +16,8 @@ public class MainActivityImc extends AppCompatActivity {
     Button btnCalcular;
 
     Button btnBack;
+
+    Button btnNext;
     TextView txtResultado, txtClassificacao;
     ImageView imgClassificacao;
 
@@ -29,6 +31,7 @@ public class MainActivityImc extends AppCompatActivity {
         edtAltura = findViewById(R.id.edtAltura);
         btnCalcular = findViewById(R.id.btnCalcular);
         btnBack = findViewById(R.id.button2);
+        btnNext = findViewById(R.id.button3);
         txtResultado = findViewById(R.id.txtResultado);
         txtClassificacao = findViewById(R.id.txtClassificacao);
         imgClassificacao = findViewById(R.id.imgClassificacao);
@@ -37,6 +40,11 @@ public class MainActivityImc extends AppCompatActivity {
 
         btnBack.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivityImc.this, MainActivity.class);
+            startActivity(intent);
+        });
+
+        btnNext.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivityImc.this, MainActivityList.class);
             startActivity(intent);
         });
     }

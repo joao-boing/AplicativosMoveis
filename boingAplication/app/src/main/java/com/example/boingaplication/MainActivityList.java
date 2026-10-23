@@ -1,8 +1,10 @@
 package com.example.boingaplication;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,31 +13,38 @@ import java.util.ArrayList;
 
 public class MainActivityList extends AppCompatActivity {
 
-    ListView list;
-
-    ArrayList<String> lista;
-
-
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_3);
 
-        list = findViewById(R.id.list);
+        EditText editTexto = findViewById(R.id.editTexto);
+        Button btnAdicionar = findViewById(R.id.btnAdicionar);
+        Button btnVoltar = findViewById(R.id.btnBack);
+        Button btnProximo = findViewById(R.id.btnProximo);
+        ListView listView = findViewById(R.id.listView);
 
+        ArrayList<String> itens = new ArrayList<>();
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, itens);
+        listView.setAdapter(adapter);
 
-        lista = new ArrayList<>();
-        lista.add("Item 1");
-        lista.add("Item 2");
-        lista.add("Item 3");
+        btnAdicionar.setOnClickListener(v -> {
+            String texto = editTexto.getText().toString().trim();
+            if (!texto.isEmpty()) {
+                itens.add(texto);
+                adapter.notifyDataSetChanged();
+                editTexto.setText("");
+            }
+        });
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_list_item_1, // layout pronto do Android
-                lista
-        );
+        btnVoltar.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivityList.this, MainActivityImc.class);
+            startActivity(intent);
+        });
 
-        list.setAdapter(adapter);
+        btnProximo.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivityList.this, MainActivityImages.class);
+            startActivity(intent);
+        });
     }
 }

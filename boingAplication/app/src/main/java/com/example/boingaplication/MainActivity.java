@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         Button b = findViewById(R.id.button);
         Button c = findViewById(R.id.btnImc);
 
-        // Botão do sorteio
         b.setOnClickListener(v -> {
             String smax = edMax.getText().toString();
             String smin = edMin.getText().toString();
@@ -61,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
             textView.setText(Integer.toString(r));
         });
 
-        // Botão que abre a tela do IMC (era "b", agora é "c")
         c.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, MainActivityImc.class);
             startActivity(intent);

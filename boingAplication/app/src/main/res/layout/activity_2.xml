@@ -57,12 +57,12 @@
         android:id="@+id/button2"
         android:layout_width="354dp"
         android:layout_height="59dp"
-        android:text="Back" />
+        android:text="Voltar" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="match_parent"
         android:layout_height="49dp"
-        android:text="Button" />
+        android:text="Ver lista" />
 
 </LinearLayout>

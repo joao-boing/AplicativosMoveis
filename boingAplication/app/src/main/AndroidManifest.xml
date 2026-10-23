@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BoingAplication" >
         <activity
-            android:name=".MainActivity"
+            android:name=".ListaBancoActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize" >
             <intent-filter>
